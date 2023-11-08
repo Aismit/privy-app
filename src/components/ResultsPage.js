@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import FieldWithSortArrows from './FieldWithSortArrows';
 import SearchContext  from './SearchContext';
-import Card from './Card';
+import NewCard from './NewCard';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { initializeApp } from "firebase/app";
@@ -205,7 +205,7 @@ const ResultsPage = () => {
             {sortedResults.length > 0 ? (
                 <div>
                     {sortedResults.slice(0, displayLimit).map((item, index) => (
-                        <Card key={index} item={item} selectedFields={selectedFields} />
+                        <NewCard key={index} item={item} selectedFields={selectedFields} />
                     ))}
                 </div>
                 // <ul>

@@ -1,7 +1,7 @@
 import React from 'react';
 import './../App.css';
 
-const Card = ({ item, selectedFields }) => {
+const NewCard = ({ item, selectedFields }) => {
     return (
         <div className="card">
             {selectedFields.map(field => (
@@ -13,7 +13,7 @@ const Card = ({ item, selectedFields }) => {
     );
 };
 
-export default Card;
+export default NewCard;
 
 
 

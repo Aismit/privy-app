@@ -4,8 +4,9 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import SearchContext  from './SearchContext';
 import { useContext } from 'react';
-const Redis = require('ioredis');
-const redis = new Redis('rediss://:p94865365ee0f7ced4cfcfc7e6d54d97a9f043aaf4e72c3588044f0479b7e4d51@ec2-3-86-119-237.compute-1.amazonaws.com:12769');
+
+const global_cache = new Map();
+
 
 function SearchBar({ setResults }) {
     const [searchTerm, setSearchTerm] = useState('');
@@ -33,10 +34,13 @@ function SearchBar({ setResults }) {
         console.log('Searching for:', searchTerm);
         try {
             setQueryTerm(searchTerm);
-            const cachedData = await redis.get(searchTerm);
-            if (cachedData) {
+            //const cachedData = await redis.get(searchTerm);
+            const hasData = global_cache.has(searchTerm);
+
+
+            if (hasData) {
                 console.log('Data found in cache');
-                const results = JSON.parse(cachedData);
+                const results = global_cache.get(searchTerm);
                 setResults(results);
 
                 navigate('/results', { state: { results } });
@@ -58,11 +62,12 @@ function SearchBar({ setResults }) {
 
 
                     const temp_results = await Promise.all(objectDetailsPromises);
-                    const results = temp_results.filter(result => result !== null)
+                    const results = temp_results.filter(result => result !== null);
 
-                    await redis.setex(searchTerm, 3600, JSON.stringify(results));
+                    //await redis.setex(searchTerm, 3600, JSON.stringify(results));
+                    global_cache.set(searchTerm, results);
 
-                    console.log("hi")
+                    console.log("hi");
 
                     setResults(results);
 

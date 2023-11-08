@@ -4,7 +4,9 @@ import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import FieldWithSortArrows from './FieldWithSortArrows';
 import SearchContext  from './SearchContext';
-import Card from './Card'
+import Card from './Card';
+import { useNavigate } from 'react-router-dom';
+
 
 const sortResults = (results, selectedFields, sortOrders) => {
     return [...results].sort((a, b) => {
@@ -31,6 +33,8 @@ const sortResults = (results, selectedFields, sortOrders) => {
     });
 };
 
+
+
 const ResultsPage = () => {
     const location = useLocation();
     const { results } = location.state || { results: [] };
@@ -39,7 +43,10 @@ const ResultsPage = () => {
     const [sortOrders, setSortOrders] = useState({});
     const [displayLimit, setDisplayLimit] = useState(results.length);
     const { queryTerm } = useContext(SearchContext);
-
+    const navigate = useNavigate();
+    const goToSearchPage = () => {
+        navigate('/search');
+    };
     useEffect(() => {
         if (results.length > 0) {
             const referenceItem = results[0];
@@ -81,6 +88,7 @@ const ResultsPage = () => {
     return (
         <div>
             <h1>Search Results</h1>
+            <button onClick={goToSearchPage}>Back to Search</button>
             <div className="field-selection">
                 {Object.keys(initialFieldsState).map((field) => (
                     <label key={field}>

@@ -7,6 +7,9 @@ import ResultsPage from './components/ResultsPage';
 import SearchContext  from './components/SearchContext';
 import React, { useState } from 'react';
 
+
+
+
 function App() {
     const [queryTerm, setQueryTerm] = useState('');
       return (
@@ -17,6 +20,7 @@ function App() {
                   <Route path="/" element={<Home />} /> {/* Update this line */}
                   <Route path="/search" element={<Search />} />
                   <Route path="/results" element={<ResultsPage />} />
+                  <Route path="results/:id" element={<ResultsPage />} />
               </Routes>
               </SearchContext.Provider>
           </Router>

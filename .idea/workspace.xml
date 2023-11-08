@@ -5,11 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb7b6008-1def-4bdf-ac11-5b9b0407c8ad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Firestore.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ResultsPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultsPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPage.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
       <updated>1699392004754</updated>
       <workItem from="1699392005848" duration="7698000" />
       <workItem from="1699407631183" duration="11639000" />
-      <workItem from="1699420081283" duration="13748000" />
+      <workItem from="1699420081283" duration="23062000" />
     </task>
     <servers />
   </component>

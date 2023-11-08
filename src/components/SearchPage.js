@@ -7,7 +7,15 @@ const SearchPage = () => {
 
     return (
         <div>
-            <h1>Search Page</h1>
+            <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: '10vh' // Use the full height of the viewport
+            }}>
+                <h1>Search Page</h1>
+            </div>
             <SearchBar setResults={setResults} />
         </div>
     );

@@ -112,7 +112,7 @@ const ResultsPage = () => {
             selectedFields,
             sortOrders,
             displayLimit,
-            //timestamp: new Date() // Optional: Save the timestamp if you need
+            //timestamp: new Date() //
         };
 
 
@@ -120,9 +120,8 @@ const ResultsPage = () => {
         setHashId(generatedHashId);
         if (generatedHashId) {
             console.log("Search state saved with hashId:", generatedHashId);
-            // You can use savedSearchId for routing or displaying a message to the user
         } else {
-            // Handle the error scenario, possibly show a message to the user
+            // Handle the error scenario, maybe show a message to the user
         }
     };
 
@@ -159,7 +158,7 @@ const ResultsPage = () => {
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
-                height: '10vh' // Use the full height of the viewport
+                height: '10vh'
             }}>
                 <h1>Search Results</h1>
             </div>

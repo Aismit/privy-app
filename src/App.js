@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import applogo from './app-logo.png';
 import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './components/Home.js';
+import Search from './components/SearchPage.js';
+import ResultsPage from './components/ResultsPage';
+import SearchContext  from './components/SearchContext';
+import React, { useState } from 'react';
+
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [queryTerm, setQueryTerm] = useState('');
+      return (
+          <Router>
+              <SearchContext.Provider value={{ queryTerm, setQueryTerm }}>
+
+              <Routes>
+                  <Route path="/" element={<Home />} /> {/* Update this line */}
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/results" element={<ResultsPage />} />
+                  <Route path="results/:id" element={<ResultsPage />} />
+              </Routes>
+              </SearchContext.Provider>
+          </Router>
+
+      );
 }
 
 export default App;
